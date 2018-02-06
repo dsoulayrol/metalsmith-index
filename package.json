@@ -1,0 +1,25 @@
+{
+  "name": "metalsmith-index",
+  "version": "1.0.0",
+  "description": "Metalsmith plugin for creating directory indexes",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/dsoulayrol/metalsmith-index",
+  "author": {
+    "name": "David Soulayrol",
+    "email": "david.soulayrol@gmail.com"
+  },
+  "license": "GPL-3.0+",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dsoulayrol/metalsmith-index.git"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --slow 300"
+  },
+  "devDependencies": {
+    "eol": "^0.9.1",
+    "metalsmith": "^2.3.0",
+    "mocha": "^4.0.1"
+  }
+}
