@@ -1,5 +1,7 @@
 # metalsmith-index
 
+[![NPM version](https://img.shields.io/npm/v/metalsmith-index.svg?style=flat-square)](https://www.npmjs.com/package/metalsmith-index)
+
 This simple plugin for [Metalsmith][] is aimed at creating directory
 indexes. It is different from [metalsmith-collections][] in that it
 does not simply create metadata to link documents between them, but
