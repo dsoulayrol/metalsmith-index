@@ -21,5 +21,8 @@
     "eol": "^0.9.1",
     "metalsmith": "^2.3.0",
     "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "recursive-readdir": "^2.2.1"
   }
 }

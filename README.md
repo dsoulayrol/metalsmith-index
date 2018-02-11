@@ -87,4 +87,7 @@ is metadata that is added to the created index file.
   alphabetic order is used. The function is used to sort an array of
   strings and must behave like a [compareFunction][].
 
+- `recursive` is false by default: the plugin ignores sub-directories.
+  When set to true, they are indexed recursively.
+
 [compareFunction]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

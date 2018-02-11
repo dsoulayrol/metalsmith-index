@@ -2,6 +2,8 @@ const assert = require('assert')
 const eol = require('eol')
 const fs = require('fs')
 const metalsmith = require('metalsmith')
+const path = require('path')
+const readdir = require("recursive-readdir")
 const index = require('..')
 
 
@@ -143,6 +145,38 @@ describe('metalsmith-index', function () {
         eol.split(files['documents/INDEX'].contents.toString('utf-8')),
         fs.readdirSync('test/fixtures/src/documents')))
       done()
+    })
+  })
+
+  it('should ignore subdirectories by default', function(done) {
+    testIndex({
+      'recursivity': {}
+    }, function(err, files) {
+      if (err) return done(err)
+      assert(files['recursivity/index.list'], 'recursivity files were not indexed')
+      readdir('test/fixtures/src/recursivity', [(filename, stats) => {
+        return stats.isDirectory()
+      }], function (err, readFiles) {
+        assert(areArraysMatching(
+          eol.split(files['recursivity/index.list'].contents.toString('utf-8')),
+          readFiles.map(f => path.relative('test/fixtures/src/recursivity', f))))
+        done()
+      })
+    })
+  })
+
+  it('should index in depth when asked to', function(done) {
+    testIndex({
+      'recursivity': { recursive: true }
+    }, function(err, files) {
+      if (err) return done(err)
+      assert(files['recursivity/index.list'], 'recursivity files were not indexed')
+      readdir('test/fixtures/src/recursivity', [], function (err, readFiles) {
+        assert(areArraysMatching(
+          eol.split(files['recursivity/index.list'].contents.toString('utf-8')),
+          readFiles.map(f => path.relative('test/fixtures/src/recursivity', f))))
+        done()
+      })
     })
   })
 
