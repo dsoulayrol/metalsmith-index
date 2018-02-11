@@ -1,3 +1,8 @@
+/*
+* The unit tests for metalsmith-index.
+* Copyright (C) 2018  David Soulayrol <david.soulayrol@gmail.com>
+*/
+
 const assert = require('assert')
 const eol = require('eol')
 const fs = require('fs')
